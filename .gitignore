@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Bundle files for release
+js/
+src/build
