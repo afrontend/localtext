@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Logo from './components/Logo'
 
 ReactDOM.render(
-  <h1>Hello World! &raquo; </h1>,
+  <Logo />,
   document.getElementById('app')
 )
