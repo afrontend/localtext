@@ -6,10 +6,11 @@
   "scripts": {
     "start": "npm run build && http-server .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel --presets react,es2015 src/source -d src/build && browserify src/build/App.js -o js/bundle.js && postcss src/**/*.css > css/bundle.css && npm run html",
+    "build": "babel --presets react,es2015 src/source -d src/build && browserify src/build/App.js -o js/bundle.js && postcss src/**/*.css > css/bundle.css",
     "watch": "watch 'npm run build' src/source src/css",
-    "html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true index.html > build/index.html",
-    "predeploy": "npm run build && mkdir -p build/js && uglifyjs js/bundle.js > build/js/bundle.js && postcss src/**/*.css > build/css/bundle.css"
+    "html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true index.html > dist/index.html",
+    "predeploy": "npm run build && mkdir -p dist/js && mkdir -p dist/css && uglifyjs js/bundle.js > dist/js/bundle.js && postcss src/**/*.css > dist/css/bundle.css && npm run html",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Bob Hwang",
   "license": "MIT",
@@ -19,6 +20,7 @@
     "babel-preset-react": "^6.24.1",
     "browserify": "^17.0.0",
     "cssnano": "^4.1.10",
+    "gh-pages": "^3.1.0",
     "html-minifier": "^4.0.0",
     "http-server": "^0.12.3",
     "postcss-cli": "^8.3.1",
