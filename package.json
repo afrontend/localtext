@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel --presets react,es2015 src/source -d src/build && browserify src/build/App.js -o js/bundle.js",
+    "build": "babel --presets react,es2015 src/source -d src/build && browserify src/build/App.js -o js/bundle.js && cleancss css/App.css -o css/bundle.css",
     "watch": "watch 'npm run build' src/source",
-    "deploy": "npm run build && mkdir -p deploy/js && uglifyjs js/bundle.js > deploy/js/bundle.js"
+    "deploy": "npm run build && mkdir -p deploy/js && uglifyjs js/bundle.js > deploy/js/bundle.js && cleancss css/App.css -o deploy/css/bundle.css"
   },
   "author": "Bob Hwang",
   "license": "MIT",
@@ -16,6 +16,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "browserify": "^17.0.0",
+    "clean-css-cli": "^5.2.2",
     "react-dom": "^17.0.2",
     "uglify-js": "^3.13.3",
     "watch": "^1.0.2"
