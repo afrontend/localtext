@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel --presets react,es2015 src/source -d src/build && browserify src/build/App.js -o js/bundle.js",
-    "watch": "watch 'npm run build' src/source"
+    "watch": "watch 'npm run build' src/source",
+    "deploy": "npm run build && mkdir -p deploy/js && uglifyjs js/bundle.js > deploy/js/bundle.js"
   },
-  "author": "",
+  "author": "Bob Hwang",
   "license": "MIT",
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -16,6 +17,7 @@
     "babel-preset-react": "^6.24.1",
     "browserify": "^17.0.0",
     "react-dom": "^17.0.2",
+    "uglify-js": "^3.13.3",
     "watch": "^1.0.2"
   }
 }
