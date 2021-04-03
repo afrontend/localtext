@@ -1,14 +1,14 @@
 {
   "name": "css",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Convert CSV to JSON Object",
   "main": "index.js",
   "scripts": {
     "start": "npm run build && http-server .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel --presets react,es2015 src/source -d src/build && browserify src/build/App.js -o js/bundle.js && cleancss src/css/*.css -o css/bundle.css",
+    "build": "babel --presets react,es2015 src/source -d src/build && browserify src/build/App.js -o js/bundle.js && cleancss src/source/*.css src/source/components/*.css -o css/bundle.css",
     "watch": "watch 'npm run build' src/source src/css",
-    "deploy": "npm run build && mkdir -p deploy/js && uglifyjs js/bundle.js > deploy/js/bundle.js && cleancss src/css/*.css -o deploy/css/bundle.css"
+    "predeploy": "npm run build && mkdir -p build/js && uglifyjs js/bundle.js > build/js/bundle.js && cleancss src/source/*.css src/source/components/*.css -o build/css/bundle.css"
   },
   "author": "Bob Hwang",
   "license": "MIT",

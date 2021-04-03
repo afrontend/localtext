@@ -105,5 +105,6 @@ dist
 
 # Bundle files for release
 js/
+css/
 src/build
-css/bundle.css
+build/
