@@ -1,13 +1,14 @@
 {
-  "name": "css",
+  "name": "localtext",
   "version": "0.0.1",
   "description": "Convert CSV to JSON Object",
   "main": "index.js",
   "scripts": {
     "start": "npm run build && http-server .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel --presets react,es2015 src/source -d src/build && browserify src/build/App.js -o js/bundle.js && cleancss src/source/*.css src/source/components/*.css -o css/bundle.css",
+    "build": "babel --presets react,es2015 src/source -d src/build && browserify src/build/App.js -o js/bundle.js && cleancss src/source/*.css src/source/components/*.css -o css/bundle.css && npm run html",
     "watch": "watch 'npm run build' src/source src/css",
+    "html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true index.html > build/index.html",
     "predeploy": "npm run build && mkdir -p build/js && uglifyjs js/bundle.js > build/js/bundle.js && cleancss src/source/*.css src/source/components/*.css -o build/css/bundle.css"
   },
   "author": "Bob Hwang",
@@ -18,6 +19,7 @@
     "babel-preset-react": "^6.24.1",
     "browserify": "^17.0.0",
     "clean-css-cli": "^5.2.2",
+    "html-minifier": "^4.0.0",
     "http-server": "^0.12.3",
     "react-dom": "^17.0.2",
     "uglify-js": "^3.13.3",
