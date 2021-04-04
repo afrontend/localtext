@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Logo from './components/Logo'
+import Frame from './components/Frame'
 
 ReactDOM.render(
-  <Logo />,
+  <Frame />,
   document.getElementById('app')
 )
