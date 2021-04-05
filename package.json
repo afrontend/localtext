@@ -7,10 +7,11 @@
     "start": "npm run build && http-server .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src/source -d src/build && browserify src/build/App.js -o js/bundle.js && postcss src/**/*.css > css/bundle.css",
+    "build:production": "babel src/source -d src/build && browserify src/build/App.js -g [ envify --NODE_ENV production ] -g uglifyify | terser --compress --mangle > js/bundle.js && postcss src/**/*.css > css/bundle.css",
     "watch": "watch 'npm run build' src/source src/css",
     "html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true index.html > dist/index.html",
     "lint": "eslint src/source",
-    "predeploy": "npm run lint && npm run build && mkdir -p dist/js && mkdir -p dist/css && uglifyjs js/bundle.js > dist/js/bundle.js && postcss src/**/*.css > dist/css/bundle.css && npm run html",
+    "predeploy": "npm run lint && npm run build:production && mkdir -p dist/js && mkdir -p dist/css && uglifyjs js/bundle.js > dist/js/bundle.js && postcss src/**/*.css > dist/css/bundle.css && npm run html",
     "deploy": "gh-pages -d dist"
   },
   "author": "Bob Hwang",
@@ -45,5 +46,10 @@
       "babel",
       "react"
     ]
+  },
+  "devDependencies": {
+    "envify": "^4.1.0",
+    "terser": "^5.6.1",
+    "uglifyify": "^5.0.2"
   }
 }
