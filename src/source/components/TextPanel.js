@@ -1,8 +1,8 @@
 import React from 'react';
 
-function TextPanel ({ placeholder }) {
+function TextPanel ({ value, placeholder, onChange }) {
   return <div>
-    <textarea placeholder={ placeholder } className="TextPanel" rows="3" cols="80"></textarea>
+    <textarea value={value} onChange={onChange} placeholder={placeholder} className="TextPanel" rows="30" cols="80"></textarea>
   </div>
 }
 
