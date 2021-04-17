@@ -1,1 +1,1 @@
-body{font-size:16px}.App{background-color:#fff}
+body{font-size:16px}.App{background-color:#fff}.Frame{margin:0 5rem;height:100vh}.Logo{height:100px;display:grid;place-items:center}.TextPanel{width:100%;height:calc(50vh - 150px);appearance:none;border:none;outline:none;padding:none;background-color:#dcdde1}.Info{height:100px;display:flex;align-items:center;justify-content:center}.Info:hover{transform:scale(1.1)}
