@@ -8,7 +8,7 @@ const compose = (...fns) =>
   (arg) => (fns.reduce((composed, f) => f(composed) ,arg))
 
 function Frame () {
-  const [csvText, setCSVText] = useState('Wrong password, 잘못된 패스워드, errorMsg, invalidPassword');
+  const [csvText, setCSVText] = useState('Hello, 안녕, key1, key2');
   const [jsonString, setJsonString] = useState('');
   const [numberOfLanguageColumn, setNumberOfLanguageColumn] = useState(2);
 
