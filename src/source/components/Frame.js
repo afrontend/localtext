@@ -7,13 +7,16 @@ import { textPathsAryToObj, toJSONString} from 'ary2json'
 const compose = (...fns) =>
   (arg) => (fns.reduce((composed, f) => f(composed) ,arg))
 
+const splitWithCR = csvText => csvText.split(/\n/).map(text => text.split(','))
+
 function Frame () {
-  const [csvText, setCSVText] = useState('Hello, 안녕, key1, key2');
+  const [csvText, setCSVText] = useState('Hello, 안녕, key1, key2\nWorld, 세상, key1, key3');
   const [jsonString, setJsonString] = useState('');
   const [numberOfLanguageColumn, setNumberOfLanguageColumn] = useState(2);
 
   const convert = compose(
-    (csv) => textPathsAryToObj([csv.split(',')], {numberOfLanguageColumn}),
+    splitWithCR,
+    (textPathsAry) => textPathsAryToObj(textPathsAry, {numberOfLanguageColumn}),
     toJSONString,
     setJsonString
   )
