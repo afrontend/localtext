@@ -19,19 +19,18 @@ function Frame () {
   )
 
   return <div className="Frame">
-    <Logo />
+    <Logo className="Logo" />
     <TextPanel value={csvText} onChange={(e) => setCSVText(e.target.value)} placeholder="CSV Text" />
-    <span>
-      a number of language column:
-    </span>
-    <select name="a number of language column" value={numberOfLanguageColumn} onChange={(e) => setNumberOfLanguageColumn(+e.target.value)}>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <Button onClick={() => convert(csvText)} />
+    <div className="Info">
+      <select name="language column" value={numberOfLanguageColumn} onChange={(e) => setNumberOfLanguageColumn(+e.target.value)}>
+        <option value="1">language column 1</option>
+        <option value="2">language column 2</option>
+        <option value="3">language column 3</option>
+        <option value="4">language column 4</option>
+        <option value="5">language column 5</option>
+      </select>
+      <Button onClick={() => convert(csvText)} />
+    </div>
     <TextPanel value={jsonString} onChange={e => e} placeholder="JSON Object" />
   </div>
 }

@@ -1,9 +1,7 @@
 import React from 'react';
 
 function TextPanel ({ value, placeholder, onChange }) {
-  return <div>
-    <textarea value={value} onChange={onChange} placeholder={placeholder} className="TextPanel" rows="30" cols="80"></textarea>
-  </div>
+  return <textarea className="TextPanel" value={value} onChange={onChange} placeholder={placeholder} className="TextPanel"></textarea>
 }
 
 export default TextPanel
