@@ -14,7 +14,7 @@ Convert CSV to JSON Object
 
 ## Usage
 
-  Now you can visit <http://localhost:8080>
+  Now you can visit <http://localhost:8080> or <https://afrontend.github.io/localtext/>
 
 ## License
 
