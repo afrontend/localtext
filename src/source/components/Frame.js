@@ -30,7 +30,7 @@ function Frame () {
     <Description text="CSV" />
     <TextPanel value={csvText} onChange={(e) => setCSVText(e.target.value)} placeholder="CSV Text" />
     <div className="Info">
-      <select name="language column" value={numberOfLanguageColumn} onChange={(e) => setNumberOfLanguageColumn(+e.target.value)}>
+      <select className="bigger" name="language column" value={numberOfLanguageColumn} onChange={(e) => setNumberOfLanguageColumn(+e.target.value)}>
         <option value="1">language column 1</option>
         <option value="2">language column 2</option>
         <option value="3">language column 3</option>
