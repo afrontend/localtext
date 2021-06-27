@@ -32,9 +32,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: scale(3);
 }
 
-.Info:hover {
+/* .Info:hover {
   transform: scale(1.1);
-}
+} */
 
