@@ -8,13 +8,13 @@ body {
 
 .Frame {
   margin: 0 5rem;
-  height: 100vh;
 }
 
 .Logo {
   height: 100px;
   display: grid;
   place-items: center;
+  font-size: 2rem;
 }
 
 .TextPanel {

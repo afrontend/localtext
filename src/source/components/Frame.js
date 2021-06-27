@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Logo from './Logo'
 import TextPanel from './TextPanel'
 import Button from './Button'
+import Description from './Description'
 import { textPathsAryToObj, toJSONString} from 'ary2json'
 
 const compose = (...fns) =>
@@ -26,6 +27,7 @@ function Frame () {
 
   return <div className="Frame">
     <Logo className="Logo" />
+    <Description text="CSV" />
     <TextPanel value={csvText} onChange={(e) => setCSVText(e.target.value)} placeholder="CSV Text" />
     <div className="Info">
       <select name="language column" value={numberOfLanguageColumn} onChange={(e) => setNumberOfLanguageColumn(+e.target.value)}>
@@ -37,6 +39,7 @@ function Frame () {
       </select>
       <Button onClick={() => convert(csvText)} />
     </div>
+    <Description text="Logo" />
     <TextPanel value={jsonString} onChange={e => e} placeholder="JSON Object" />
   </div>
 }
