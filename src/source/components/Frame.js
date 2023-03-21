@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import Logo from './Logo'
 import TextPanel from './TextPanel'
 import Button from './Button'
-import Description from './Description'
 import { textPathsAryToObj, toJSONString} from 'ary2json'
 
 const compose = (...fns) =>
@@ -25,12 +23,10 @@ function Frame () {
     setJsonString
   )
 
-  return <div className="Frame">
-    <Logo className="Logo" />
-    <Description text="CSV" />
-    <TextPanel value={csvText} onChange={(e) => setCSVText(e.target.value)} placeholder="CSV Text" />
-    <div className="Info">
-      <select className="bigger" name="language column" value={numberOfLanguageColumn} onChange={(e) => setNumberOfLanguageColumn(+e.target.value)}>
+  return <div>
+    <div className="title">Local Text Converter &raquo;</div>
+    <div className="info">
+      <select name="language column" value={numberOfLanguageColumn} onChange={(e) => setNumberOfLanguageColumn(+e.target.value)}>
         <option value="1">language column 1</option>
         <option value="2">language column 2</option>
         <option value="3">language column 3</option>
@@ -39,8 +35,10 @@ function Frame () {
       </select>
       <Button onClick={() => convert(csvText)} />
     </div>
-    <Description text="Logo" />
-    <TextPanel value={jsonString} onChange={e => e} placeholder="JSON Object" />
+    <div className="panel">
+      <TextPanel value={csvText} onChange={(e) => setCSVText(e.target.value)} placeholder="CSV Text" />
+      <TextPanel value={jsonString} onChange={e => e} placeholder="JSON Object" />
+    </div>
   </div>
 }
 

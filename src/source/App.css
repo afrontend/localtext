@@ -1,40 +1,39 @@
+html,
 body {
   font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
-  background-color: white;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
 }
 
-.Frame {
-  margin: 0 5rem;
-}
-
-.Logo {
+.title {
   height: 100px;
   display: grid;
   place-items: center;
   font-size: 2rem;
 }
 
-.TextPanel {
-  width: 100%;
-  height: calc((100vh - 300px) / 2);
-  appearance: none;
-  border: none;
-  outline: none;
-  padding: none;
-  background-color: #dcdde1;
-}
-
-.Info {
-  height: 100px;
+.info {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.bigger {
-  padding: 20px;
-  font-size: 2em;
+.panel {
+  width: 100%;
+  display: flex;
+}
+
+.textPanel {
+  flex: 1;
+  height: calc(100vh - 200px);
+  width: 95%;
+  margin: 0;
+  margin: 10px;
 }
