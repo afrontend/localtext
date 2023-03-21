@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && http-server .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src/source -d src/build && browserify src/build/App.js -o js/bundle.js && postcss src/**/*.css > css/bundle.css",
+    "build": "babel src/source -d src/build && browserify src/build/App.js -o js/bundle.js && mkdir -p css && postcss src/**/*.css > css/bundle.css",
     "build:production": "babel src/source -d src/build && browserify src/build/App.js -g [ envify --NODE_ENV production ] -g uglifyify | terser --compress --mangle > js/bundle.js && postcss src/**/*.css > css/bundle.css",
     "watch": "watch 'npm run build' src/source src/css",
     "html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true index.html > dist/index.html",
