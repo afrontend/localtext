@@ -4,7 +4,7 @@
   "description": "Convert CSV to JSON Object",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && http-server .",
+    "dev": "npm run build && http-server .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src/source -d src/build && browserify src/build/App.js -o js/bundle.js && mkdir -p css && postcss src/**/*.css > css/bundle.css",
     "build:production": "babel src/source -d src/build && browserify src/build/App.js -g [ envify --NODE_ENV production ] -g uglifyify | terser --compress --mangle > js/bundle.js && postcss src/**/*.css > css/bundle.css",
